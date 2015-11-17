@@ -29,6 +29,7 @@ public class ActivityB extends Activity
 			} else {
 				Log.d(TAG, this + ": Existing mFragment found. " + String.valueOf(MyApp.mFragment));
 				//MoveFragment fr = (MoveFragment)MoveFragment.AddFragmentTransaction(this,R.id.activity_b_layout_id);
+				MoveFragment fr = (MoveFragment)MoveFragment.AddFragmentTransaction(this,R.id.activity_a_main_layout_id);
 			}
 		}
 		else
@@ -47,10 +48,17 @@ public class ActivityB extends Activity
 		});
 	}
 
+	@Override
+	protected void onPause()
+	{
+		super.onPause();
+
+		((MoveFragment)MyApp.mFragment).RemoveFragment();
+	}
+
 	protected void onClick(){
 		Log.d(TAG, this + ": btn.onClick()");
-		Intent intent = new Intent(this, ActivityA.class);
-		startActivity(intent);
+		finish();
 	}
 
 }

@@ -40,6 +40,14 @@ public class ActivityA extends Activity implements View.OnClickListener
 	}
 
 	@Override
+	protected void onStart()
+	{
+		super.onStart();
+
+		MoveFragment fr = (MoveFragment)MoveFragment.AddFragmentTransaction(this,R.id.activity_a_main_layout_id);
+	}
+
+	@Override
 	protected void onPause()
 	{
 		super.onPause();
@@ -58,6 +66,7 @@ public class ActivityA extends Activity implements View.OnClickListener
 	{
 		super.onResume();
 		Log.d(TAG, this + ": onResume()");
+
 	}
 
 	@Override

@@ -17,7 +17,7 @@ import android.widget.TextView;
 public class MoveFragment extends Fragment
 {
 	public static final String FTAG = "move_fragment";
-	private static final String TAG = MoveFragment.class.getSimpleName();
+	private final String TAG = MoveFragment.class.getSimpleName();
 
 	private Activity mActivity;
     private String stored_text = "";
@@ -56,7 +56,7 @@ public class MoveFragment extends Fragment
 		return fragment;
 	}
 
-	private void RemoveFragment(){
+	public void RemoveFragment(){
 		if( mActivity != null )
 		{
 			FragmentManager fm = mActivity.getFragmentManager();
@@ -70,7 +70,7 @@ public class MoveFragment extends Fragment
 				//   fragTransaction.remove(fragment);
 				fragTransaction.commit();
 			}
-			mActivity = null;
+			//mActivity = null;
 		}
 	}
 
